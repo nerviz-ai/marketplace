@@ -1,6 +1,6 @@
 {
-  "name": "spring-architect",
-  "description": "Installs or updates the claude-spring-architect `.claude/` inside a Java project. Carries only the skill: the norms, skills, agents and hook are fetched from the source repository at adopt time, so there is a single source of truth and nothing to re-copy per release.",
+  "name": "nerviz",
+  "description": "Installs or updates the Nerviz `.claude/` inside a Java project. Carries only the skill: the norms, skills, agents and hook are fetched from the source repository at adopt time, so there is a single source of truth and nothing to re-copy per release.",
   "version": "0.14.11",
   "author": {
     "name": "Lucas Fernandes",

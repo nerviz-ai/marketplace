@@ -1,7 +1,7 @@
 {
-  "$comment": "This repository owns no content of its own: every file under skills/ is a copy of one in claude-spring-architect, and this file says which, from where, and at what ref. The copy exists because a plugin cannot fetch its own skill before it runs; everything ELSE the architecture consists of — the norms, the other skills, the agents, the hook — is fetched at adopt time and is deliberately not vendored here. `ref` is what `sync.sh` pulls from and what `.github/workflows/validate.yml` compares against, so a copy that drifts from its source fails CI instead of shipping.",
-  "git_url": "https://github.com/ice-lfernandes/claude-spring-architect.git",
-  "raw_url": "https://raw.githubusercontent.com/ice-lfernandes/claude-spring-architect/{ref}/{path}",
+  "$comment": "This repository owns no content of its own: every file under skills/ is a copy of one in Nerviz, and this file says which, from where, and at what ref. The copy exists because a plugin cannot fetch its own skill before it runs; everything ELSE the architecture consists of — the norms, the other skills, the agents, the hook — is fetched at adopt time and is deliberately not vendored here. `ref` is what `sync.sh` pulls from and what `.github/workflows/validate.yml` compares against, so a copy that drifts from its source fails CI instead of shipping.",
+  "git_url": "https://github.com/nerviz-ai/nerviz.git",
+  "raw_url": "https://raw.githubusercontent.com/nerviz-ai/nerviz/{ref}/{path}",
   "auth_env": "GH_TOKEN",
   "ref": "v0.14.11",
   "files": {

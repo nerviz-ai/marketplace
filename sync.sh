@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Refreshes the vendored copies from claude-spring-architect at the ref in
+# Refreshes the vendored copies from Nerviz at the ref in
 # .plugin-source.json. Run it, read `git diff`, commit. Nothing here writes to the
 # source repository, and nothing commits on your behalf.
 #
