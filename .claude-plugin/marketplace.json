@@ -1,15 +1,15 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "claude-spring-architect",
-  "description": "Delivery vehicle for the claude-spring-architect architecture: one skill that installs its norms, development skills, agents and hooks into an existing Java project, and updates them later.",
+  "name": "nerviz",
+  "description": "Delivery vehicle for Nerviz, an agent harness for Spring Boot: one skill that installs its norms, development skills, agents and hooks into an existing Java project, and updates them later.",
   "owner": {
-    "name": "Lucas Fernandes",
-    "url": "https://github.com/ice-lfernandes"
+    "name": "Nerviz",
+    "url": "https://github.com/nerviz-ai"
   },
   "plugins": [
     {
-      "name": "spring-architect",
-      "description": "Install or update the claude-spring-architect `.claude/` inside a Java project — norms with globs derived for the project's own packages, development skills, agents, and the enforcement hook.",
+      "name": "nerviz",
+      "description": "Install or update the Nerviz `.claude/` inside a Java project — norms with globs derived for the project's own packages, development skills, agents, and the enforcement hook.",
       "source": "./",
       "category": "productivity"
     }

@@ -1,23 +1,23 @@
-# claude-spring-architect · marketplace
+# Nerviz · marketplace
 
-Delivery vehicle for [claude-spring-architect](https://github.com/ice-lfernandes/claude-spring-architect).
+Delivery vehicle for [Nerviz](https://github.com/nerviz-ai/nerviz).
 It ships **one skill**, `/arch-adopt`, and nothing else.
 
 ## Install
 
 ```bash
-claude plugin marketplace add ice-lfernandes/claude-spring-architect-marketplace
-claude plugin install spring-architect@claude-spring-architect
+claude plugin marketplace add nerviz-ai/marketplace
+claude plugin install nerviz@nerviz
 ```
 
 Then, **inside the Java project** that should adopt the architecture:
 
 ```
-/spring-architect:arch-adopt
+/nerviz:arch-adopt
 ```
 
 A plugin's skills are namespaced by the plugin's name, so it is
-`/spring-architect:arch-adopt` here. The copy this command installs **into the project**
+`/nerviz:arch-adopt` here. The copy this command installs **into the project**
 is a project skill, not a plugin one, and is plain `/arch-adopt` from then on.
 
 It reads the project's packages, proposes the closest architecture blueprint, fetches

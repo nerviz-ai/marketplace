@@ -159,7 +159,7 @@ jobs:
           BRANCH: ${{ needs.prepare.outputs.branch }}
           CURRENT: ${{ needs.prepare.outputs.current }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          SOURCE_URL: https://github.com/${{ github.repository_owner }}/claude-spring-architect
+          SOURCE_URL: https://github.com/${{ github.repository_owner }}/nerviz
         run: |
           set -euo pipefail
           {
