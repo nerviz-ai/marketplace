@@ -3,7 +3,7 @@
   "git_url": "https://github.com/nerviz-ai/nerviz.git",
   "raw_url": "https://raw.githubusercontent.com/nerviz-ai/nerviz/{ref}/{path}",
   "auth_env": "GH_TOKEN",
-  "ref": "v0.17.2",
+  "ref": "v0.17.3",
   "files": {
     "skills/arch-adopt/SKILL.md": ".claude/skills/arch-adopt/SKILL.md"
   }
