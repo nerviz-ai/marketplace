@@ -1,7 +1,7 @@
 {
   "name": "nerviz",
   "description": "Installs or updates the Nerviz `.claude/` inside a Java project. Carries only the skill: the norms, skills, agents and hook are fetched from the source repository at adopt time, so there is a single source of truth and nothing to re-copy per release.",
-  "version": "0.17.5",
+  "version": "0.17.6",
   "author": {
     "name": "Lucas Fernandes",
     "url": "https://github.com/ice-lfernandes"
