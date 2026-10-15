@@ -1,7 +1,7 @@
 # Nerviz · marketplace
 
 Delivery vehicle for [Nerviz](https://github.com/nerviz-ai/nerviz).
-It ships **one skill**, `/arch-adopt`, and nothing else.
+It ships **two skills**, `/arch-adopt` and `/new-project`, and nothing else.
 
 ## Install
 
@@ -25,13 +25,28 @@ the source repository, and writes the project's `.claude/`: the norms with their
 derived for those packages, the development skills, the agents, the enforcement hook and
 its schema. Review with `git diff`; undo with `git checkout -- .claude`.
 
+## Create a project
+
+In the directory that should hold your projects — no clone of the source needed:
+
+```
+/nerviz:new-project
+```
+
+It fetches the source at its latest release tag into `nerviz-<tag>/` there, records which tag
+and commit it fetched, and prints the next two moves: `cd nerviz-<tag> && claude`, then
+`/init-project` inside that session. The generation runs there, with that tree's hooks
+active, exactly as it does from a clone; the project is created next to the tree, in the
+directory you started from. `--ref <tag|sha|main>` pins another ref.
+
 ## What this repository does not carry
 
 The norms, the development skills, the agents and the hook are **not** vendored here.
 `/arch-adopt` fetches them from the source repository at adopt time, so there is one
-source of truth and no per-release copy to keep in sync. What is vendored is the skill
-itself — a plugin cannot fetch its own skill before it runs — and `.plugin-source.json`
-records where that copy came from. CI fails if it has drifted.
+source of truth and no per-release copy to keep in sync. What is vendored are the two skills
+themselves — a plugin cannot fetch its own skill before it runs — and `.plugin-source.json`
+records where each copy came from. CI fails if one has drifted. `new-project` reads
+`arch-adopt`'s fetch steps by path, so the two are always synced at the same ref.
 
 Once a project has adopted, the skill is inside that project too: updating it needs no
 plugin. This marketplace is how the first install happens, not a runtime dependency.

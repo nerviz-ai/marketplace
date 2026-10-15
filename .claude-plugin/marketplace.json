@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "nerviz",
-  "description": "Delivery vehicle for Nerviz, an agent harness for Spring Boot: one skill that installs its norms, development skills, agents and hooks into an existing Java project, and updates them later.",
+  "description": "Delivery vehicle for Nerviz, an agent harness for Spring Boot: one skill that installs its norms, development skills, agents and hooks into an existing Java project and updates them later, and one that fetches the source to create a new project without a clone.",
   "owner": {
     "name": "Nerviz",
     "url": "https://github.com/nerviz-ai"
@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "nerviz",
-      "description": "Install or update the Nerviz `.claude/` inside a Java project — norms with globs derived for the project's own packages, development skills, agents, and the enforcement hook.",
+      "description": "Install or update the Nerviz `.claude/` inside a Java project — norms with globs derived for the project's own packages, development skills, agents, and the enforcement hook — or fetch the source to create a new project without a clone.",
       "source": "./",
       "category": "productivity"
     }
