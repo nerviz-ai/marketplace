@@ -6,6 +6,7 @@
   "ref": "v0.41.0",
   "files": {
     "skills/arch-adopt/SKILL.md": ".claude/skills/arch-adopt/SKILL.md",
-    "skills/new-project/SKILL.md": ".claude/skills/new-project/SKILL.md"
+    "skills/new-project/SKILL.md": ".claude/skills/new-project/SKILL.md",
+    "skills/platform-upgrade/SKILL.md": ".claude/skills/platform-upgrade/SKILL.md"
   }
 }
