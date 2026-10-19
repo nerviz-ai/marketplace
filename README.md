@@ -1,7 +1,7 @@
 # Nerviz · marketplace
 
 Delivery vehicle for [Nerviz](https://github.com/nerviz-ai/nerviz).
-It ships **two skills**, `/arch-adopt` and `/new-project`, and nothing else.
+It ships **three skills**, `/arch-adopt`, `/platform-upgrade` and `/new-project`, and nothing else.
 
 ## Install
 
@@ -25,6 +25,21 @@ the source repository, and writes the project's `.claude/`: the norms with their
 derived for those packages, the development skills, the agents, the enforcement hook and
 its schema. Review with `git diff`; undo with `git checkout -- .claude`.
 
+## Bring a project up to the floor
+
+`/arch-adopt` refuses a project that builds on a Spring Boot line older than the one the
+architecture is written for. Inside that project:
+
+```
+/nerviz:platform-upgrade
+```
+
+It takes the build to the line the Initializr serves today — the version bump, the renamed
+starters and test slices, the renamed configuration properties — through a recipe the source's
+hook writes and the Apache-licensed OpenRewrite core runs through the project's own Maven or
+Gradle wrapper, then fixes what no rename covers until the build is green. It never commits:
+review with `git diff`, undo with `git checkout -- .`. It ends by printing `/arch-adopt`.
+
 ## Create a project
 
 In the directory that should hold your projects — no clone of the source needed:
@@ -43,7 +58,7 @@ directory you started from. `--ref <tag|sha|main>` pins another ref.
 
 The norms, the development skills, the agents and the hook are **not** vendored here.
 `/arch-adopt` fetches them from the source repository at adopt time, so there is one
-source of truth and no per-release copy to keep in sync. What is vendored are the two skills
+source of truth and no per-release copy to keep in sync. What is vendored are the three skills
 themselves — a plugin cannot fetch its own skill before it runs — and `.plugin-source.json`
 records where each copy came from. CI fails if one has drifted. `new-project` reads
 `arch-adopt`'s fetch steps by path, so the two are always synced at the same ref.
