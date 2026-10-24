@@ -1,7 +1,8 @@
 # Nerviz · marketplace
 
 Delivery vehicle for [Nerviz](https://github.com/nerviz-ai/nerviz).
-It ships **three skills**, `/arch-adopt`, `/platform-upgrade` and `/new-project`, and nothing else.
+It ships **three skills**, `/arch-adopt`, `/platform-upgrade` and `/new-project`, and one mod,
+`nerviz-config`.
 
 ## Install
 
@@ -53,6 +54,16 @@ and commit it fetched, and prints the next two moves: `cd nerviz-<tag> && claude
 `/init-project` inside that session. The generation runs there, with that tree's hooks
 active, exactly as it does from a clone; the project is created next to the tree, in the
 directory you started from. `--ref <tag|sha|main>` pins another ref.
+
+## Project settings pane
+
+`/nerviz-config` opens a pane over `ArchHook.jar config list` in a project that has the Nerviz
+`.claude/`: the settings the project owns, the ones off their default marked, each change asked
+in a dialog and written only through `config set` or `config unset`. It needs Claude Code 2.1.287
+or later, stays silent where the project has no `.claude/hooks/ArchHook.jar`, and says to run
+`/arch-adopt` for a jar older than the `config` mode. A mod is unsandboxed code; this one holds
+no rule and starts no program but `java`. Source and design: `.claude/mods/nerviz-config/` and
+decision `0187` in the source repository.
 
 ## What this repository does not carry
 

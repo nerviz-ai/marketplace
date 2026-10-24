@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "nerviz",
-      "description": "Install or update the Nerviz `.claude/` inside a Java project — norms with globs derived for the project's own packages, development skills, agents, and the enforcement hook — take a project on an older Spring Boot line up to the one the architecture requires, or fetch the source to create a new project without a clone.",
+      "description": "Install or update the Nerviz `.claude/` inside a Java project — norms with globs derived for the project's own packages, development skills, agents, and the enforcement hook — take a project on an older Spring Boot line up to the one the architecture requires, or fetch the source to create a new project without a clone. Also loads `/nerviz-config`, a pane over the settings a project owns.",
       "source": "./",
       "category": "productivity"
     }
