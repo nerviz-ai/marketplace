@@ -7,6 +7,11 @@
   "files": {
     "skills/arch-adopt/SKILL.md": ".claude/skills/arch-adopt/SKILL.md",
     "skills/new-project/SKILL.md": ".claude/skills/new-project/SKILL.md",
-    "skills/platform-upgrade/SKILL.md": ".claude/skills/platform-upgrade/SKILL.md"
+    "skills/platform-upgrade/SKILL.md": ".claude/skills/platform-upgrade/SKILL.md",
+    "hooks/hooks.json": ".claude/mods/nerviz-config/hooks/hooks.json",
+    "hooks/model.ts": ".claude/mods/nerviz-config/hooks/model.ts",
+    "hooks/palettes.ts": ".claude/mods/nerviz-config/hooks/palettes.ts",
+    "hooks/register.ts": ".claude/mods/nerviz-config/hooks/register.ts",
+    "hooks/words.ts": ".claude/mods/nerviz-config/hooks/words.ts"
   }
 }
