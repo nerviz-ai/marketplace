@@ -1,7 +1,7 @@
 {
   "name": "nerviz",
   "description": "Installs or updates the Nerviz `.claude/` inside a Java project, takes a project on an older Spring Boot line up to the one it requires, and fetches the source to create a new one without a clone. Carries only those three skills: the norms, skills, agents and hook are fetched from the source repository when they run, so there is a single source of truth and nothing to re-copy per release.",
-  "version": "0.41.4",
+  "version": "0.42.4",
   "author": {
     "name": "Lucas Fernandes",
     "url": "https://github.com/ice-lfernandes"
