@@ -44,6 +44,10 @@ before is reported as that — never as the upgrade's, and never fixed by editin
 
 ### 1 · Refuse to write over uncommitted work
 
+**Runs:** self · **Gate:** stop
+
+**Stops when:** dirty tree, no git or no wrapper? · **Says:** says what to run; never offers to commit
+
 ```bash
 git rev-parse --is-inside-work-tree && git status --porcelain
 ```
@@ -65,6 +69,10 @@ nothing to do with the upgrade. Say it before step 4b, and let the person start 
 the baseline will record those cases as failing.
 
 ### 2 · Fetch the source
+
+**Runs:** self · **Gate:** stop
+
+**Stops when:** ref predates this skill? · **Says:** says --ref must name a newer one
 
 A project below the floor has no `ArchHook.jar` of this shape, so the mode that writes the recipe
 comes from the source, fetched as `arch-adopt` § 2-3 does it: `$SRC` named once there, the
@@ -97,6 +105,8 @@ below — `engine`, `recipes`, `test_starters` — are read from that file, neve
 
 ### 3 · Resolve the target version
 
+**Runs:** self · **Gate:** ask
+
 The Initializr is the version oracle. Generate a throwaway project into `$WORK` and read its
 parent version:
 
@@ -123,6 +133,10 @@ download failed → go on without it, and the report says the BOMs were not move
 
 ### 4 · Resolve the engine's version
 
+**Runs:** self · **Gate:** stop
+
+**Stops when:** no engine version resolves? · **Says:** the engine's public line moved; engine is the block to edit
+
 Read both from the repository that serves them. Print the versions chosen, so the report can name
 them.
 
@@ -138,6 +152,8 @@ POM are `curl -sS --fail -L`, and the BOM check is `curl -sSfIL`. None → stop:
 line moved, and `engine` is the block to edit.
 
 ### 4b · The baseline — what was red before the upgrade
+
+**Runs:** cmd:test-diff
 
 Run the project's tests on the tree as the person left it, and record every case. Step 9 compares
 against this; without it, a red build says nothing about who broke it. It is a full build — minutes —
@@ -157,6 +173,10 @@ JUnit XML report" → the tree does not get as far as running its tests: there i
 go on; step 9 then reports any red as it is.
 
 ### 5 · Pass 1 — the bump, the coordinates, the types
+
+**Runs:** cmd:upgrade-recipe · **Gate:** stop
+
+**Stops when:** recipe refused (exit 2)? · **Says:** shows the exit as it is; or: nothing to upgrade
 
 The project's line is read from its own build by the mode:
 
@@ -208,6 +228,8 @@ Two more the recipe leaves as they are, and the diff shows:
 
 ### 5b · The Gradle wrapper — before the new plugin configures anything
 
+**Runs:** self · **Depends on:** 5 · **Conditional:** yes · **Gate:** ask
+
 Gradle only. The bump put a Spring Boot plugin in the build that may refuse the wrapper's Gradle; every
 `./gradlew` from here on configures it, and `./gradlew wrapper` would be refused the same way. Ask once:
 
@@ -235,6 +257,8 @@ memory, and never a major jump the message did not ask for.
 
 ### 6 · The new classpath
 
+**Runs:** self
+
 Dependency resolution now sees the new BOM. List the jars it resolves — one file, every module:
 
 ```bash
@@ -252,6 +276,8 @@ A resolution failure here is the first signal that a dependency has no counterpa
 read the message, it names the artifact. That is step 8's, not a reason to stop.
 
 ### 7 · Pass 2 — the property renames
+
+**Runs:** cmd:upgrade-recipe
 
 ```bash
 CLAUDE_PROJECT_DIR="$SRC" java -jar "$SRC/.claude/hooks/ArchHook.jar" upgrade-recipe . \
@@ -271,6 +297,8 @@ sources do not compile until step 8, and the engine does not need them to rename
 ```
 
 ### 8 · The guided residue
+
+**Runs:** self
 
 Compile, read the first errors, fix the cause, compile again:
 
@@ -301,6 +329,8 @@ Two rules, no exceptions: **a test that fails is reported, never deleted, skippe
 
 ### 8b · The context loads
 
+**Runs:** self
+
 Compiling proves the sources agree with the new jars, not that the application starts: a starter whose
 auto-configuration moved out, a property no jar reads any more, a bean that now needs a module — all
 compile, and all fail only when the context is built. Run first, and on their own, the test classes
@@ -326,6 +356,10 @@ three-strikes rule. A class that is `fail` in `$WORK/baseline.json` already fail
 
 ### 9 · Verify
 
+**Runs:** cmd:test-diff, cmd:doctor? · **Gate:** gate
+
+**Stops when:** test-diff exits 2? · **Says:** regressions are the report; nothing is committed
+
 ```bash
 ./mvnw -B -fae clean verify -Dmaven.test.failure.ignore=true   # Maven
 ./gradlew clean build --continue                               # Gradle
@@ -343,6 +377,10 @@ When the project already has `.claude/hooks/ArchHook.jar`, run `java -jar .claud
 doctor` too and put its `Platform` line in the report.
 
 ### 10 · Hand the diff over
+
+**Runs:** self
+
+**Hands over:** `/arch-adopt`
 
 `git status --short` and `git diff --stat`. Do **not** commit. Print the next command for the person
 to type: `/arch-adopt` — now the project is at or above the floor, and a project that never had this
